@@ -11,15 +11,15 @@ namespace MyApplication
             {
                 try
                 {
-                    using (var connection = new SqlConnection("Server=tcp:192.168.1.100,1433;Initial Catalog=test;User=DockerTest;Password=12345;"))
+                    using (var connection = new SqlConnection("Server=RBHDWHRED003\\SQL;Initial Catalog=master;Integrated Security=True;Trusted_Connection=True"))
                     {
-                        var command = new SqlCommand("SELECT TOP 10 * FROM dbo.test", connection);
+                        var command = new SqlCommand("SELECT TOP (10) *  FROM [COMORBIDITY].[dbo].[DNA_OUTPUT_DOCKERTEST]", connection);
                         connection.Open();
                         using (var reader = command.ExecuteReader())
                         {
                             while (reader.Read())
                             {
-                                Console.WriteLine("test!!!");
+                                Console.WriteLine("DNA_OUTPUT_DOCKERTEST");
 								Console.WriteLine($"{reader[0]}:{reader[1]} ${reader[2]}");
                             }
                         }

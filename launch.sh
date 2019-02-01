@@ -1,2 +1,2 @@
-kinit myUserName-k -t myUserName.keytab
+kinit xus 
 dotnet MyApplication.dll
